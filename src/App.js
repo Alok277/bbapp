@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router";
+import { Route, Routes } from "react-router";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import NavBar from "./components/NavBar";
@@ -16,16 +16,18 @@ function App() {
   const userData = useSelector((state) => state.auth.getUserData);
   // const userSubscription = useSelector((state) => state.bba.subscriptionDetail);
 
-
+  
   useEffect(() => {
-    dispatch(getUserAction());
+    if (userData) {
+    dispatch(getUserAction(userData.localId));
+    }
   }, []);
   useEffect(() => {
     if (userData) {
       dispatch(getAction(userData.localId));
       console.log(userData.localId);
     }
-  }, [userData]);
+  },[] );
 
   return (
     <div className="App">

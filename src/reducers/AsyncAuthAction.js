@@ -12,11 +12,12 @@ export const signUpAction=createAsyncThunk(
 export const signInAction=createAsyncThunk(
     'signInAction',
     async (data,thunkApi)=>{
+
         console.log(data,'in');
         const response=await apiAuthServices.signin(data);
         setTimeout(() => {
-            thunkApi.dispatch(getUserAction());
-          }, 1000);
+           thunkApi.dispatch(getUserAction());
+          }, 1500); 
         console.log(response)
         return response;
     }

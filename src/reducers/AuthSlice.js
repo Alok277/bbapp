@@ -26,6 +26,7 @@ const authSlice = createSlice({
       const response=action.payload;
       console.log(response)
       state.isLoggedIn=true;
+      
       localStorage.setItem('idToken',response.idToken);
     })
     builder.addCase(getUserAction.fulfilled,(state,action)=>{

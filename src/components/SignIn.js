@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import { useDispatch, useSelector } from "react-redux";
-import { signInAction } from "../reducers/AsyncAuthAction";
+import {   signInAction } from "../reducers/AsyncAuthAction";
 import { useNavigate } from "react-router";
 
 
@@ -12,7 +12,7 @@ const SignIn = () => {
   console.log(user);
   if (user) {
     navigate("/");
-    dispatch()   
+    // dispatch()   
   }
 
   const [userEmail, setUserEmail] = useState("");
@@ -30,9 +30,13 @@ const SignIn = () => {
     const userObj = {
       email: userEmail,
       password: userPass,
+      
     };
     console.log(userObj);
     dispatch(signInAction(userObj));
+    //    setTimeout(() => {
+    //        dispatch(getUserAction(user.localId));
+    //       }, 0); 
   };
   const signUpHandle = () => {
     navigate("/signup");

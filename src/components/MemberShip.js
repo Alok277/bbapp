@@ -164,7 +164,7 @@ const MemberShip = () => {
     <div style={{ marginTop: "4.5rem" }}>
       <Stack spacing={2}>
         <Item>
-         MemberShip Active Till: {subscriptionDetail[0] && subscriptionDetail[0].membershipActiveTill}
+         MemberShip Active Till: <h1>{subscriptionDetail[0] && subscriptionDetail[0].membershipActiveTill}</h1>
         </Item>
       </Stack>
 

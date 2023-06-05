@@ -21,14 +21,17 @@ export const updateMembershipAction = createAsyncThunk(
     console.log("update", data);
     const response = await apiBbaServices.updateMembership(data);
     setTimeout(() => {
-        thunkAPI.dispatch(getAction(data.localId));
-      }, 1500);
-      console.log(response);
+      thunkAPI.dispatch(getAction(data.localId));
+    }, 1500);
+    console.log(response);
   }
 );
-export const getAction = createAsyncThunk("getAction", async (data,thunkAPI) => {
-  console.log("actionbba",data);
-  const response = await apiBbaServices.getBbaData(data);
-  console.log(response.data);
-  return response.data;
-});
+export const getAction = createAsyncThunk(
+  "getAction",
+  async (data, thunkAPI) => {
+    console.log("actionbba", data);
+    const response = await apiBbaServices.getBbaData(data);
+    console.log(response.data);
+    return response.data;
+  }
+);
